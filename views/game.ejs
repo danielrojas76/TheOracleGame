@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <a href="/"><input type="submit" value="INICIO"></a>
+        <h1>GAMER ==> <%= usuario[0].gamer.toUpperCase()%></h1>
+
+        <!-- PREGUNTA -->
+
+        <%= preguntas[0].pregunta.toUpperCase()%>
+                <br>
+                <form action="/game/respuesta" method="post">
+                    <input type="radio" name="respuesta" value="0"><%= preguntas[0].opcion[0]%></input>
+                    <input type="radio" name="respuesta" value="1"><%= preguntas[0].opcion[1]%></input>
+                    <input type="radio" name="respuesta" value="2"><%= preguntas[0].opcion[2]%></input>
+                    <input type="submit" value="responder">
+                </form>
+    </body>
+</html>

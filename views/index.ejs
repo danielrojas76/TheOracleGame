@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <p>Welcome to <%= title %>
+  </p>
+  <form action="/users/gamer" method="POST">
+    <label for="">Nombre</label>
+    <br>
+    <input type="text" name="nombre">
+    <br>
+    <input type="submit" value="Iniciar">
+  </form>
+  <br>
+  <br>
+  <a href="/users/createQuestion"><input type="submit"  value="Crear pregunta"></a>
+  
+</body>
+
+</html>
