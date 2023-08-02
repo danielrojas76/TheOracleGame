@@ -1,4 +1,5 @@
 let fs = require('fs');
+let path = require('path')
 
 let userController = {
     home: function(req, res){
@@ -18,9 +19,11 @@ let userController = {
 
         gamer.push(usuario)
 
+        /* const jsonData = fs.readFileSync(path.join(__dirname, '../data/usuarios.json')) */
+
         let usuarioJSON = JSON.stringify(gamer); 
 
-        fs.writeFileSync('usuario.json', usuarioJSON); 
+        fs.writeFileSync(path.join(__dirname, '../data/usuarios.json', usuarioJSON)); 
 
         res.redirect('/game')
     },

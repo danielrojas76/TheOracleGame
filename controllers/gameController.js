@@ -3,38 +3,55 @@ let fs = require('fs');
 let gameController = {
 
     game: function (req, res) {
+        //--leemos los json
         let preguntaJSON = fs.readFileSync('preguntas.json', 'utf-8');
-
         let usuarioJSON = fs.readFileSync('usuario.json', 'utf-8');
-
+        //--convertir los json
         let pregunta = JSON.parse(preguntaJSON)
-
         let gamer = JSON.parse(usuarioJSON);
-
+        //--respondo con la vista "game" y la variables
         res.render('game', { usuario: gamer, preguntas: pregunta })
     },
 
     result: function (req, res) {
         let preguntaJSON = fs.readFileSync('preguntas.json', 'utf-8');
         let pregunta = JSON.parse(preguntaJSON)
-        let respuesta =pregunta[0].respuestaCorrecta;
         /* let respuestaCorrecta = pregunta[0].respuestaCorrecta */
-
+        
         let usuarioJSON = fs.readFileSync('usuario.json', 'utf-8');
         let gamer = JSON.parse(usuarioJSON);
-
+        
+        //preguntas y respuestas
+        
+        let index = 0;
+        let score = 0;
+        let question = pregunta[index].pregunta;
+        let questionOpcion = pregunta[index].opciones;
+        let correctAnswer =  pregunta[index].respuestaCorrecta;
+        
+        if(index > pregunta.length){
+            res.render('game', { usuario: gamer, pregunta: question, respuesta: questionOpcion});
+            if(correctAnswer == req.body.respuesta){
+                index++
+                score++
+                res.redirect('/game')
+            }
+        } else {
+            
+        }
         //logica 
-
-        if (respuesta == respuesta) {
-            pregunta.shift()
+        
+        /* if (respuesta == respuesta) {
+            let respuesta = pregunta[0].respuestaCorrecta;
             if (pregunta.length == 0) {
                 res.send('ganaste');
             } else {
-                res.render('game', { usuario: gamer, preguntas: pregunta })
+                res.render('game', { usuario: gamer, preguntas: pregunta})
             }
         } else {
-            res.render('game', { usuario: gamer, preguntas: pregunta })
-        }
+            res.render('game', { usuario: gamer, preguntas: pregunta})
+        } */
+
     }
 }
 

@@ -1,10 +1,17 @@
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>game</title>
+    </head>
     <body>
         <a href="/"><input type="submit" value="INICIO"></a>
         <h1>GAMER ==> <%= usuario[0].gamer.toUpperCase()%></h1>
 
         <!-- PREGUNTA -->
-
+        <h2>vidas = <i class="fa-solid fa-heart-circle-bolt"></i></h2>
         <%= preguntas[0].pregunta.toUpperCase()%>
                 <br>
                 <form action="/game/respuesta" method="post">
