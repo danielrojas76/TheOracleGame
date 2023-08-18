@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
+<%- include('partials/head', {title: 'home' }) %>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-</head>
+  <body>
+    <div class="main">
+    <div>
+      <h1 class="title">
+        The-Oracle 
+      </h1>
+      <p>The-Great-Trial-v0.1</p>
+    </div>
+      <form class="index-form" action="/users/gamer" method="POST">
+        <div class="box-name">
+          <label for="nombre">Nombre</label>
+          <input type="text" name="nombre">
+        </div>
 
-<body>
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
-  <form action="/users/gamer" method="POST">
-    <label for="">Nombre</label>
-    <br>
-    <input type="text" name="nombre">
-    <br>
-    <input type="submit" value="Iniciar">
-  </form>
-  <br>
-  <br>
-  <a href="/users/createQuestion"><input type="submit"  value="Crear pregunta"></a>
-  
-</body>
+        <input class="btn" type="submit" value="Iniciar">
+
+      </form>
+
+
+      <a  href="/users/createQuestion"><input class="btn"  type="submit" value="Crear pregunta"></a>
+
+    </div>
+
+  </body>
 
 </html>

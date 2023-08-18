@@ -1,24 +1,48 @@
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="/css/style.css">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>game</title>
-    </head>
-    <body>
-        <a href="/"><input type="submit" value="INICIO"></a>
-        <h1>GAMER ==> <%= usuario[0].gamer.toUpperCase()%></h1>
+<%- include('partials/head', {title: 'home' }) %>
 
-        <!-- PREGUNTA -->
-        <h2>vidas = <i class="fa-solid fa-heart-circle-bolt"></i></h2>
-        <%= preguntas[0].pregunta.toUpperCase()%>
-                <br>
-                <form action="/game/respuesta" method="post">
-                    <input type="radio" name="respuesta" value="0"><%= preguntas[0].opcion[0]%></input>
-                    <input type="radio" name="respuesta" value="1"><%= preguntas[0].opcion[1]%></input>
-                    <input type="radio" name="respuesta" value="2"><%= preguntas[0].opcion[2]%></input>
-                    <input type="submit" value="responder">
-                </form>
+    <body>
+        <div class="main">
+
+            <a href="/"><input class="btn" type="submit" value="INICIO"></a>
+            <h1>GAMER <%= usuario[0].gamer.toUpperCase()%>
+            </h1>
+
+            <!-- PREGUNTA -->
+            <div class="life-container">
+                <h2>vidas </h2>
+                <i class="fa-solid fa-heart-circle-bolt"></i>
+            </div>
+            <p class="question">
+                <%= preguntas[index || 0].pregunta.toUpperCase()%>
+            </p>
+            <br>
+            <form class="question-box" action="/game/respuesta" method="post">
+                <!-- <div class="resp">
+                    <div class="option">
+                        <label for="res0"></label>
+                        <input type="submit" id="res0" class="select" name="respuesta" value="select">
+                    </div>
+                    <div class="option">
+                        <label for="res1"></label>
+                        <input type="submit" id="res1" class="select" name="respuesta" value="select">
+                    </div>
+                    <div class="option">
+                        <label for="res2"></label>
+                        <input type="submit" id="res2" class="select" name="respuesta" value="select">
+                    </div>
+                </div> -->
+
+                <div class="resp">
+                    <input type="radio" name="respuesta" value="0"><%= preguntas[index || 0].opcion[0]%></input>
+                    <input type="radio" name="respuesta" value="1"><%= preguntas[index || 0].opcion[1]%></input>
+                    <input type="radio" name="respuesta" value="2"><%= preguntas[index || 0].opcion[2]%></input>
+                </div>
+              
+                
+                <input class="btn" type="submit" value="responder">
+            </form>
+        </div>
     </body>
+
 </html>
